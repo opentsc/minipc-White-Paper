@@ -1,0 +1,11 @@
+{
+  "text": "资料已经整理完成，共找到 4 条有效记录。",
+  "stopReason": "end_turn",
+  "sessionId": "synthetic-session-id",
+  "requestId": "synthetic-request-id",
+  "thought": "这是用于测试的内部过程文字，不应发送到飞书。",
+  "usage": {
+    "input_tokens": 1200,
+    "output_tokens": 180
+  }
+}

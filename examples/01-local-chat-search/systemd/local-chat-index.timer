@@ -1,0 +1,10 @@
+[Unit]
+Description=每小时更新本地聊天记录检索索引
+
+[Timer]
+OnCalendar=hourly
+RandomizedDelaySec=5m
+Persistent=true
+
+[Install]
+WantedBy=timers.target

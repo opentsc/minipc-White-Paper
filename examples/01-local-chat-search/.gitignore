@@ -1,0 +1,6 @@
+.env
+data/
+private-data/*
+!private-data/.gitkeep
+__pycache__/
+*.pyc

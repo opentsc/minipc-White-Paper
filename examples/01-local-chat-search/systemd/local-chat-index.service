@@ -1,0 +1,9 @@
+[Unit]
+Description=重建本地聊天记录检索索引
+After=network.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/apps/local-chat-search
+ExecStart=/usr/bin/python3 %h/apps/local-chat-search/scripts/import.py --reset
+TimeoutStartSec=900

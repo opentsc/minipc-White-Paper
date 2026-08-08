@@ -1,0 +1,21 @@
+agent_id: AGENT_ID
+service_name: SERVICE_NAME
+runtime: hermes
+workforce_root: WORKFORCE_ROOT
+workspace: WORKFORCE_ROOT/agents/AGENT_ID/workspace
+state_dir: WORKFORCE_ROOT/agents/AGENT_ID/state
+log_dir: WORKFORCE_ROOT/agents/AGENT_ID/logs
+credential_dir: WORKFORCE_ROOT/agents/AGENT_ID/credentials
+model:
+  endpoint: MODEL_ENDPOINT
+  queue: local_llm_small
+permissions:
+  allowed_paths:
+    - WORKFORCE_ROOT/agents/AGENT_ID/workspace
+    - WORKFORCE_ROOT/agents/AGENT_ID/state
+  allowed_tools:
+    - read_workspace
+    - write_result
+  external_actions: false
+  system_control: false
+report_to: COORDINATOR_AGENT_ID

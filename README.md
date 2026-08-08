@@ -4,7 +4,7 @@ Roland Wayne 著·本白皮书免费开源，欢迎在线或本地阅读与分�
 
 当前版本：`0.1.0`
 
-当前状态：目录结构稿，尚未公开发布。
+当前状态：公开草稿。
 
 ## 关于本书
 
@@ -52,3 +52,4 @@ AI 实践从研究延伸到企业工作流程，也包括内容生产系统。�
 
 - [案例 01　本地聊天记录检索](examples/01-local-chat-search/README.md)
 - [案例 02　飞书智能体输出过滤](examples/02-feishu-agent-output-filter/README.md)
+- [案例 03　本地多 Agent 工作节点](examples/03-local-agent-workforce/README.md)

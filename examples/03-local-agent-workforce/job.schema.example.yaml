@@ -1,0 +1,26 @@
+job_id: JOB_ID
+requester: COORDINATOR_AGENT_ID
+assignee: AGENT_ID
+goal: TASK_GOAL
+inputs:
+  - INPUT_REFERENCE
+allowed_paths:
+  - WORKFORCE_ROOT/agents/AGENT_ID/workspace
+allowed_tools:
+  - read_workspace
+  - write_result
+forbidden_actions:
+  - external_send
+  - public_publish
+  - production_deploy
+  - delete_source
+  - payment
+  - permission_expand
+expected_output: WORKFORCE_ROOT/agents/AGENT_ID/workspace/RESULT_FILE
+acceptance_checks:
+  - OUTPUT_EXISTS
+  - OUTPUT_USES_ALLOWED_PATHS
+dependencies: []
+priority: normal
+human_approval_required: false
+status: pending

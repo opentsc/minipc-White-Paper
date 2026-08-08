@@ -1,0 +1,20 @@
+version: 1
+default: deny
+human_approval_status: awaiting_human
+approval_required_actions:
+  - external_send
+  - public_publish
+  - production_deploy
+  - delete_or_overwrite
+  - payment
+  - account_recovery
+  - permission_expand
+approval_scope:
+  bind_to_job_id: true
+  bind_to_action: true
+  bind_to_target: true
+  expires_after_use: true
+always_forbidden:
+  - read_other_agent_credentials
+  - change_unlisted_service
+  - bypass_account_controls

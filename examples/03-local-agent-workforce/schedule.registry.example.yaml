@@ -1,0 +1,25 @@
+version: 1
+model_endpoint: MODEL_ENDPOINT
+queues:
+  interactive:
+    concurrency: 1
+  local_llm_heavy:
+    concurrency: 1
+  local_llm_small:
+    concurrency: 2
+  browser_stateful:
+    concurrency_per_profile: 1
+  disk_heavy:
+    concurrency: 1
+  external_send:
+    concurrency: 1
+    human_approval_required: true
+jobs:
+  - job_id: SCHEDULE_JOB_ID
+    owner: AGENT_ID
+    service_name: SERVICE_NAME
+    queue: local_llm_small
+    trigger: SCHEDULE_EXPRESSION
+    checkpoint: WORKFORCE_ROOT/agents/AGENT_ID/state/CHECKPOINT_FILE
+    output: WORKFORCE_ROOT/agents/AGENT_ID/workspace/OUTPUT_FILE
+    external_send: false

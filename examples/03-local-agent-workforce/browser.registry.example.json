@@ -1,0 +1,14 @@
+{
+  "profiles": [
+    {
+      "profile_id": "PROFILE_ID",
+      "owner": "AGENT_ID",
+      "cdp_port": "CDP_PORT",
+      "profile_dir": "WORKFORCE_ROOT/runtime/browser/PROFILE_ID",
+      "lock_file": "WORKFORCE_ROOT/runtime/locks/PROFILE_ID.lock",
+      "service_name": "SERVICE_NAME",
+      "max_concurrency": 1,
+      "external_actions": false
+    }
+  ]
+}

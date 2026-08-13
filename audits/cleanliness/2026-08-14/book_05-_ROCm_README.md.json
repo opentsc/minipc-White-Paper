@@ -1,0 +1,11 @@
+{
+  "document": "book/05-驱动与ROCm/README.md",
+  "document_class": "deliverable",
+  "sha256": "4acf2b0413dd72b1e4409b57ff99df6f6e6f045c8495b6b6da9e144729277775",
+  "status": "PASS",
+  "allowed_headings": [],
+  "allowed_codes": [
+    "INTERNAL_PATH"
+  ],
+  "issues": []
+}

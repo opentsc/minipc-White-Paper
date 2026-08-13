@@ -1,0 +1,11 @@
+{
+  "document": "evidence/inference/README.md",
+  "document_class": "deliverable",
+  "sha256": "a48f5b21040304638c0b49894edb7785981fc5f26fcd2b10b2e29c91da205581",
+  "status": "PASS",
+  "allowed_headings": [],
+  "allowed_codes": [
+    "INTERNAL_PATH"
+  ],
+  "issues": []
+}

@@ -1,0 +1,11 @@
+{
+  "document": "book/08-OCR/README.md",
+  "document_class": "deliverable",
+  "sha256": "e1463c278ab5c38e2682b3caa9d21819e5210583cb2c7e88b5008b0983b01e6e",
+  "status": "PASS",
+  "allowed_headings": [],
+  "allowed_codes": [
+    "INTERNAL_PATH"
+  ],
+  "issues": []
+}

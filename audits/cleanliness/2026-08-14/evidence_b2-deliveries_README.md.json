@@ -1,0 +1,11 @@
+{
+  "document": "evidence/b2-deliveries/README.md",
+  "document_class": "deliverable",
+  "sha256": "f192d472a13947dd33472c5d8efbb94c0b1ec0ddb86cadce95d8d99cc0ddcb9d",
+  "status": "PASS",
+  "allowed_headings": [],
+  "allowed_codes": [
+    "INTERNAL_PATH"
+  ],
+  "issues": []
+}

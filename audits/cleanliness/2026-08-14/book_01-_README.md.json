@@ -1,0 +1,11 @@
+{
+  "document": "book/01-开箱与安装/README.md",
+  "document_class": "deliverable",
+  "sha256": "9fcaed3b96e82e8dc78328dab79934f0cdf49d8b94d60f648b7cccf854b2cb78",
+  "status": "PASS",
+  "allowed_headings": [],
+  "allowed_codes": [
+    "INTERNAL_PATH"
+  ],
+  "issues": []
+}

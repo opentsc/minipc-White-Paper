@@ -1,0 +1,42 @@
+# 2026-08-14 文档干净度检查
+
+- 检查文件：36
+- 检查结果：PASS
+- `INTERNAL_PATH` 仅对公开 URL 与仓库相对链接放行；另行扫描绝对工作区路径和密钥模式。
+
+- `README.md`：PASS
+- `book/00-使用说明/README.md`：PASS
+- `book/01-开箱与安装/README.md`：PASS
+- `book/02-Ubuntu/README.md`：PASS
+- `book/03-服务器基础/README.md`：PASS
+- `book/04-Max395硬件/README.md`：PASS
+- `book/05-驱动与ROCm/README.md`：PASS
+- `book/06-本地模型/README.md`：PASS
+- `book/07-RAG/README.md`：PASS
+- `book/08-OCR/README.md`：PASS
+- `book/09-Agent与RPA/README.md`：PASS
+- `book/10-产品化/README.md`：PASS
+- `book/11-客户与报价/README.md`：PASS
+- `book/12-商业产品/README.md`：PASS
+- `book/13-项目交付/README.md`：PASS
+- `book/14-运维安全/README.md`：PASS
+- `book/15-故障排查/README.md`：PASS
+- `book/README.md`：PASS
+- `playbooks/README.md`：PASS
+- `playbooks/agent-rpa/README.md`：PASS
+- `playbooks/document-ocr/README.md`：PASS
+- `playbooks/local-ai-appliance/README.md`：PASS
+- `playbooks/local-api/README.md`：PASS
+- `playbooks/managed-support/README.md`：PASS
+- `playbooks/private-rag/README.md`：PASS
+- `templates/README.md`：PASS
+- `reference/README.md`：PASS
+- `reference/证据与发布规则.md`：PASS
+- `evidence/README.md`：PASS
+- `evidence/b1-products/README.md`：PASS
+- `evidence/b2-deliveries/README.md`：PASS
+- `evidence/b3-demand/README.md`：PASS
+- `evidence/hardware/README.md`：PASS
+- `evidence/inference/README.md`：PASS
+- `evidence/rejected/README.md`：PASS
+- `assets/README.md`：PASS

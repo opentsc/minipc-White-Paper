@@ -1,0 +1,11 @@
+{
+  "document": "README.md",
+  "document_class": "deliverable",
+  "sha256": "c06278ef83e2de9d44d21fa442a7891c9a0421aac548627a5d7ea98122d42592",
+  "status": "PASS",
+  "allowed_headings": [],
+  "allowed_codes": [
+    "INTERNAL_PATH"
+  ],
+  "issues": []
+}

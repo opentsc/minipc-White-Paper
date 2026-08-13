@@ -1,0 +1,11 @@
+{
+  "document": "book/02-Ubuntu/README.md",
+  "document_class": "deliverable",
+  "sha256": "9df770e598e7fc97da3a3c6dea06fec670e61495879cdc720ef792d0ee4c19e3",
+  "status": "PASS",
+  "allowed_headings": [],
+  "allowed_codes": [
+    "INTERNAL_PATH"
+  ],
+  "issues": []
+}

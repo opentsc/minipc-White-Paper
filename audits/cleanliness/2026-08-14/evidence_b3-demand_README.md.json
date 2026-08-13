@@ -1,0 +1,11 @@
+{
+  "document": "evidence/b3-demand/README.md",
+  "document_class": "deliverable",
+  "sha256": "4a2dc89590b0c75fc63dbf02b52a4ac567e57a383eeaddd369b5996a2e08c220",
+  "status": "PASS",
+  "allowed_headings": [],
+  "allowed_codes": [
+    "INTERNAL_PATH"
+  ],
+  "issues": []
+}

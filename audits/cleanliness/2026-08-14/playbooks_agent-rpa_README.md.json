@@ -1,0 +1,11 @@
+{
+  "document": "playbooks/agent-rpa/README.md",
+  "document_class": "deliverable",
+  "sha256": "4b32f9015701cb2ed7868d827b821e6d0a6bc9e0d8479962c00d46bf06856580",
+  "status": "PASS",
+  "allowed_headings": [],
+  "allowed_codes": [
+    "INTERNAL_PATH"
+  ],
+  "issues": []
+}

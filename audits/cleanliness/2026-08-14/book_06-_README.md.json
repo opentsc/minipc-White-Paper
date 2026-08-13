@@ -1,0 +1,11 @@
+{
+  "document": "book/06-本地模型/README.md",
+  "document_class": "deliverable",
+  "sha256": "609692f7647904b3a67b252ea88827ac194c3e5274568d17391220701310651f",
+  "status": "PASS",
+  "allowed_headings": [],
+  "allowed_codes": [
+    "INTERNAL_PATH"
+  ],
+  "issues": []
+}

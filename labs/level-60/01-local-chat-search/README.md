@@ -44,7 +44,7 @@ sudo docker compose version
 
 ```bash
 mkdir -p "$HOME/apps"
-cp -R examples/01-local-chat-search "$HOME/apps/local-chat-search"
+cp -R labs/level-60/01-local-chat-search "$HOME/apps/local-chat-search"
 cd "$HOME/apps/local-chat-search"
 ```
 

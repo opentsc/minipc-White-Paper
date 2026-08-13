@@ -1,0 +1,11 @@
+{
+  "document": "reference/证据与发布规则.md",
+  "document_class": "deliverable",
+  "sha256": "f733ca3fbb841193ed40bf2b732a87491eba72843a9446fdf085ca079aab636a",
+  "status": "PASS",
+  "allowed_headings": [],
+  "allowed_codes": [
+    "INTERNAL_PATH"
+  ],
+  "issues": []
+}

@@ -1,0 +1,11 @@
+{
+  "document": "book/14-运维安全/README.md",
+  "document_class": "deliverable",
+  "sha256": "ea982838756429ee3653f7f0ce0a0b133e311ca654d53f55ab18a4cb2203434e",
+  "status": "PASS",
+  "allowed_headings": [],
+  "allowed_codes": [
+    "INTERNAL_PATH"
+  ],
+  "issues": []
+}

@@ -1,0 +1,11 @@
+{
+  "document": "playbooks/local-ai-appliance/README.md",
+  "document_class": "deliverable",
+  "sha256": "720eb8655eec16500ff79fb3e74ebc4728d7e4f3472ea5d0674e60f8b3e63305",
+  "status": "PASS",
+  "allowed_headings": [],
+  "allowed_codes": [
+    "INTERNAL_PATH"
+  ],
+  "issues": []
+}

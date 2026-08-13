@@ -1,0 +1,11 @@
+{
+  "document": "playbooks/README.md",
+  "document_class": "deliverable",
+  "sha256": "019a77ee36ed3faf5e2be42d4e90b27a3d58692eb8aa47cad6b7413763195f18",
+  "status": "PASS",
+  "allowed_headings": [],
+  "allowed_codes": [
+    "INTERNAL_PATH"
+  ],
+  "issues": []
+}

@@ -1,0 +1,11 @@
+{
+  "document": "book/11-客户与报价/README.md",
+  "document_class": "deliverable",
+  "sha256": "e4ec75c3eb004b721b53e0fe0a13acf0a547ba5d14db0bdb9dd2f59a1cf676b1",
+  "status": "PASS",
+  "allowed_headings": [],
+  "allowed_codes": [
+    "INTERNAL_PATH"
+  ],
+  "issues": []
+}

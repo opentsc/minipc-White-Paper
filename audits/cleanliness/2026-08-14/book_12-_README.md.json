@@ -1,0 +1,11 @@
+{
+  "document": "book/12-商业产品/README.md",
+  "document_class": "deliverable",
+  "sha256": "10d9fae2ccdabb9403c26b81750d0bcad034a1280695cf2d6eefc4952e6f0927",
+  "status": "PASS",
+  "allowed_headings": [],
+  "allowed_codes": [
+    "INTERNAL_PATH"
+  ],
+  "issues": []
+}

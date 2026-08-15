@@ -2,6 +2,8 @@
 *.tmp
 *.bak
 ~$*
+__pycache__/
+*.pyc
 
 # 内部记录，不进入公开仓库
 audits/

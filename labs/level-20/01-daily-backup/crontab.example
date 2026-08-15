@@ -1,0 +1,9 @@
+# 每周日凌晨 4 点跑一次备份。
+# 用 crontab -e 打开自己的定时任务表，把下面这行抄进去，改三个地方：
+#   1. 账户名换成 whoami 的输出
+#   2. 移动硬盘的卷标换成 ls /media/账户名/ 看到的那个
+#   3. 路径全部写成绝对路径，不要用 ~
+0 4 * * 0 /home/你的账户名/ai/scripts/backup.sh "/media/你的账户名/WD-1TB/minipc-backup" >> /home/你的账户名/ai/backup/cron.log 2>&1
+
+# 想改成每天跑一次，把星期那个字段的 0 换成 *
+# 0 4 * * * /home/你的账户名/ai/scripts/backup.sh "/media/你的账户名/WD-1TB/minipc-backup" >> /home/你的账户名/ai/backup/cron.log 2>&1

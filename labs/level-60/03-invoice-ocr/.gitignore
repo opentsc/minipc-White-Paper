@@ -1,0 +1,34 @@
+# 真实单据不进 Git
+data/
+invoices/
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+*.webp
+
+# 跑出来的东西也不进 Git，里面是客户的往来单位和金额
+out/
+failed/
+done/
+ledger.csv
+ledger.xlsx
+ledger.db
+lines.csv
+review.csv
+diff.csv
+accuracy.csv
+truth.csv
+
+# 填过真实字段的 schema 与提示词不进 Git，只保留 .example 模板
+invoice_schema.json
+invoice_prompt.txt
+
+# 检查脚本的输出可能含内网地址、端口和模型名
+check-*.txt
+*.log
+
+__pycache__/
+*.pyc

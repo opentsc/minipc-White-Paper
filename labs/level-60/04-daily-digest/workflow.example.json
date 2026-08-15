@@ -1,0 +1,122 @@
+{
+  "name": "日报-案例一（样例）",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "days",
+              "triggerAtHour": 7,
+              "triggerAtMinute": 0
+            }
+          ]
+        }
+      },
+      "id": "11111111-1111-4111-8111-111111111111",
+      "name": "每天早上",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [-40, 0]
+    },
+    {
+      "parameters": {
+        "url": "https://请换成你自己的订阅源地址/feed",
+        "options": {}
+      },
+      "id": "22222222-2222-4222-8222-222222222222",
+      "name": "抓订阅源",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1.1,
+      "position": [180, 0]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// 整理素材 —— 只留最近几条，拼成一段交给模型的文字\n// 模式：全部数据只跑一次\n// 字段名以“抓订阅源”那个节点的输出面板为准，各站点的 RSS 写法有出入\n\nconst 最多几条 = 8;\n\nconst 条目 = $input.all().slice(0, 最多几条);\n\nconst 行 = 条目.map((一条, 序号) => {\n  const j = 一条.json;\n  const 标题 = String(j.title || '无标题').trim();\n  const 链接 = String(j.link || '').trim();\n  const 摘录 = String(j.contentSnippet || j.description || j.content || '')\n    .replace(/<[^>]+>/g, ' ')\n    .replace(/\\s+/g, ' ')\n    .trim()\n    .slice(0, 500);\n  return `${序号 + 1}. ${标题}\\n链接：${链接}\\n原文摘录：${摘录}`;\n});\n\nreturn [{ json: { 条数: 条目.length, 用户内容: 行.join('\\n\\n') } }];"
+      },
+      "id": "33333333-3333-4333-8333-333333333333",
+      "name": "整理素材",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [400, 0]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:11434/v1/chat/completions",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"请换成你 ollama list 里的模型名\",\n  \"messages\": [\n    {\"role\": \"system\", \"content\": \"你把下面这份文章清单整理成一份中文日报。规矩：一、只用清单里出现的内容，清单里没有的一个字都不要补；二、一条写一句话，说清它讲的是什么；三、摘不出内容的那一条，就写“这条摘不出内容”，不要猜；四、保留每条的链接，原样放在那一句后面；五、不要写开场白，不要写总结，不要用感叹号。\"},\n    {\"role\": \"user\", \"content\": {{ JSON.stringify($json.用户内容) }}}\n  ],\n  \"stream\": false,\n  \"temperature\": 0.2\n}",
+        "options": {
+          "timeout": 300000
+        }
+      },
+      "id": "44444444-4444-4444-8444-444444444444",
+      "name": "问模型",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [620, 0]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// 拼日报 —— 把模型写的那段套上标题和日期，顺便算出文件名\n// 模式：全部数据只跑一次\n\nconst 摘要 = String(\n  ($json.choices && $json.choices[0] && $json.choices[0].message\n    && $json.choices[0].message.content) || ''\n).trim();\n\nconst 两位 = (n) => String(n).padStart(2, '0');\nconst d = new Date();\nconst 日期 = `${d.getFullYear()}-${两位(d.getMonth() + 1)}-${两位(d.getDate())}`;\n\nconst 条数 = $('整理素材').first().json.条数;\n\nconst 正文 = [\n  `# 日报 ${日期}`,\n  ``,\n  `今天抓到 ${条数} 条。`,\n  ``,\n  摘要 || '（模型没有返回内容，去执行记录里点开“问模型”那个节点看）',\n  ``,\n  `———— 以上内容由本地模型摘出，原文以链接为准。`,\n  ``,\n].join('\\n');\n\nreturn [{\n  json: {\n    日期: 日期,\n    文件名: `日报-${日期}.md`,\n    路径: `/data/日报-${日期}.md`,\n    正文: 正文,\n  },\n}];"
+      },
+      "id": "55555555-5555-4555-8555-555555555555",
+      "name": "拼日报",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [840, 0]
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "正文",
+        "options": {}
+      },
+      "id": "66666666-6666-4666-8666-666666666666",
+      "name": "转成文本文件",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [1060, 0]
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "={{ $('拼日报').first().json.路径 }}",
+        "dataPropertyName": "data",
+        "options": {}
+      },
+      "id": "77777777-7777-4777-8777-777777777777",
+      "name": "写到硬盘",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [1280, 0]
+    }
+  ],
+  "connections": {
+    "每天早上": {
+      "main": [[{ "node": "抓订阅源", "type": "main", "index": 0 }]]
+    },
+    "抓订阅源": {
+      "main": [[{ "node": "整理素材", "type": "main", "index": 0 }]]
+    },
+    "整理素材": {
+      "main": [[{ "node": "问模型", "type": "main", "index": 0 }]]
+    },
+    "问模型": {
+      "main": [[{ "node": "拼日报", "type": "main", "index": 0 }]]
+    },
+    "拼日报": {
+      "main": [[{ "node": "转成文本文件", "type": "main", "index": 0 }]]
+    },
+    "转成文本文件": {
+      "main": [[{ "node": "写到硬盘", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}

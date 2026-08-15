@@ -1,0 +1,42 @@
+# Ollama 的 systemd 覆盖文件。
+#
+# 这个文件本身不会被执行。把下面 [Service] 那一段抄进覆盖文件里，做法是：
+#
+#   sudo systemctl edit ollama
+#
+# 它会打开一个编辑器，上下各有一行注释，内容必须写在那两行之间。
+# 抄完保存退出，然后：
+#
+#   sudo systemctl daemon-reload
+#   sudo systemctl restart ollama
+#
+# 确认写对了：
+#
+#   systemctl cat ollama --no-pager     输出的后半段能看到下面这几行
+#   ss -tln | grep 11434                Local Address 那一列要是 0.0.0.0:11434
+#
+# 教材第 6 卷第 3 章、第 4 章、第 8 章、第 15 章。
+#
+# ⚠️ 三个变量写在同一个 [Service] 段下面，一行一个。
+#    分成三段 [Service] 是最常见的写错法。
+
+[Service]
+
+# 在这台机器的全部地址上监听，包括局域网那个。
+# 只想给本机用就写 127.0.0.1:11434。
+# 这一行是整份配置的关键，家里人和别的程序能不能连上全看它。
+Environment="OLLAMA_HOST=0.0.0.0:11434"
+
+# 模型存哪儿。没把模型挪出系统盘的话，这一行不用写。
+# 目录的属主要是 ollama 这个账户：sudo chown -R ollama:ollama /你要放的路径
+Environment="OLLAMA_MODELS=/你要放的路径/models"
+
+# 让模型常驻内存，不要空闲几分钟就卸载。
+# 家里人随时会来问一句，每次都等加载很难用。
+# 不想常驻就删掉这一行，默认是留 5 分钟。
+Environment="OLLAMA_KEEP_ALIVE=-1"
+
+# 同一个模型同时处理几个请求。默认是 1，也就是排队。
+# 几个人同时问的话把它调大，但每一路都要各占一份 KV cache 的内存。
+# 该填几，用教材第 6 卷第 15 章那个并发测试脚本自己测出来，别照抄这里的 4。
+Environment="OLLAMA_NUM_PARALLEL=4"

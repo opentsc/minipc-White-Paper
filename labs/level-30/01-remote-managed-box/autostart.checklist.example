@@ -1,0 +1,50 @@
+# 无人值守配置清单。一条一条执行，跑完再用 check-remote-box.sh 体检一次。
+#
+# 这个文件本身不会被执行，它是给你照抄的清单。
+
+# ---- 一、看关键服务的开机自启是不是都开着 ----
+systemctl is-enabled ssh docker smbd tailscaled cron
+
+# 某一行是 disabled 的，把它打开，服务名换成你要的那个
+# sudo systemctl enable smbd
+
+# ---- 二、看容器的重启策略 ----
+docker inspect -f '{{.Name}} {{.HostConfig.RestartPolicy.Name}}' $(docker ps -aq)
+
+# 显示 no 的容器改成 unless-stopped，不用删了重建
+# docker update --restart unless-stopped 容器名
+
+# 用 Docker Compose 起的那一套，在 compose.yaml 里每个服务下面加一行
+#     restart: unless-stopped
+# 然后在那个目录里执行
+# docker compose up -d
+
+# ---- 三、看定时任务还在 ----
+crontab -l
+
+# ---- 四、关掉睡眠和休眠。服务器一睡，网络就断 ----
+sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
+# 要退回去
+# sudo systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
+# ---- 五、关掉图形界面，可选，省一两 GB 内存 ----
+# systemctl get-default
+# sudo systemctl set-default multi-user.target
+# sudo reboot
+
+# 要把桌面找回来
+# sudo systemctl set-default graphical.target
+# sudo reboot
+
+# ---- 六、来电自启，在 BIOS 里，命令行改不了 ----
+# 进 BIOS 找这几个名字里的一个，改成 Power On：
+#   Restore on AC Power Loss
+#   AC Power Loss / After Power Failure
+#   Power On After Power Fail
+#   State After Power Failure
+#   AC Recovery / State After G3
+# 常见位置是 Advanced、Chipset、Power 三个菜单。各家不同，按功能找，别按名字硬对。
+
+# ---- 七、拔电验一次。这是唯一算数的验收 ----
+# 拔插座 → 等 30 秒 → 插回去 → 不按电源键 → 等两分钟 → 在别的机器上跑体检脚本

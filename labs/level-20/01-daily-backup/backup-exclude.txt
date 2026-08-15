@@ -1,0 +1,11 @@
+models/
+postgres/
+node_modules/
+__pycache__/
+.venv/
+venv/
+.cache/
+*.gguf
+*.safetensors
+*.iso
+*.img

@@ -1,0 +1,41 @@
+{
+  "type": "object",
+  "properties": {
+    "发票种类": {
+      "type": "string",
+      "enum": ["增值税专用发票", "增值税普通发票", "电子发票", "其他"]
+    },
+    "发票号码": {
+      "type": "string"
+    },
+    "开票日期": {
+      "type": "string"
+    },
+    "购买方名称": {
+      "type": "string"
+    },
+    "销售方名称": {
+      "type": "string"
+    },
+    "金额": {
+      "type": "string"
+    },
+    "税额": {
+      "type": "string"
+    },
+    "价税合计": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "发票种类",
+    "发票号码",
+    "开票日期",
+    "购买方名称",
+    "销售方名称",
+    "金额",
+    "税额",
+    "价税合计"
+  ],
+  "additionalProperties": false
+}

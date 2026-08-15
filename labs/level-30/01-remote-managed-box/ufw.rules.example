@@ -1,0 +1,35 @@
+# 防火墙规则示例。一条一条抄进终端执行，顺序不能调换。
+# 局域网网段换成你自己的，用 ip route | grep default 查网关，前三段就是它。
+#
+# 这个文件本身不会被执行，它是给你照抄的清单。
+
+# ---- 第一步，放行 SSH。这一条必须在 enable 之前 ----
+sudo ufw allow OpenSSH
+
+# ---- 第二步，设默认策略 ----
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+# ---- 第三步，确认规则真的进去了。输出里必须有 allow OpenSSH ----
+sudo ufw show added
+
+# ---- 第四步，启用。它会问一句会不会中断 SSH，打 y ----
+sudo ufw enable
+
+# ---- 第五步，新开一个窗口验证还能连进去，再往下做 ----
+# ssh 你的账户名@192.168.1.50
+
+# ---- 放行监控面板，只对局域网 ----
+sudo ufw allow from 192.168.1.0/24 to any port 3001 proto tcp
+
+# ---- 放行共享文件夹，只对局域网 ----
+sudo ufw allow from 192.168.1.0/24 to any port 445 proto tcp
+
+# ---- 放行 Tailscale 这条通道。没装 Tailscale 就跳过 ----
+sudo ufw allow in on tailscale0
+
+# ---- 看结果。每一行都要说得出这个口是给谁开的 ----
+sudo ufw status verbose
+
+# ---- 被自己关在门外了：接显示器和键盘，本地登录，执行这一条 ----
+# sudo ufw disable

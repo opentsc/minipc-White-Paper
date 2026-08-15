@@ -1,0 +1,13 @@
+# 填过真实客户问答的评测题不进 Git，只保留 .example 模板
+eval-questions.md
+system-prompt.txt
+
+# 检查脚本的输出可能含内网地址和容器配置
+check-*.txt
+*.log
+
+# 索引和向量数据
+index.json
+docs/
+__pycache__/
+*.pyc

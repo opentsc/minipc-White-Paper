@@ -1,0 +1,27 @@
+# 真实的工作流导出不进 Git
+# 导出的 JSON 里会带凭据编号、内网地址、真实订阅源和你自己的模型名
+workflow.json
+my-workflow.json
+*.workflow.json
+workflows/
+export/
+
+# 日报输出不进 Git，里面是抓回来的正文和链接
+daily/
+out/
+日报-*.md
+digest-*.md
+*.md.bak
+
+# 体检脚本的输出可能含容器名、内网地址、端口、挂载路径和模型名
+check-*.txt
+*.log
+
+# n8n 自己的数据目录，万一有人把它复制进来
+.n8n/
+n8n-data/
+
+# 凭据和环境变量一律不进 Git
+.env
+*.env
+credentials*.json

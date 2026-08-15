@@ -1,0 +1,54 @@
+# 填了真实客户信息的正式版本不进 Git，只保留 .example 模板
+# 里面有客户名、地址、账号、电话、设备编号和响应时间承诺
+演示脚本.md
+客户说明书.md
+验收单.md
+许可清单.md
+母盘说明.md
+出厂检查单.md
+开机后必改清单.md
+*.filled.md
+*-filled.md
+
+# 交付目录整个不进 Git
+deliveries/
+交付/
+交付件/
+
+# 演示数据不进 Git
+# 客户给的那一批更不能进，用完按约定删并出书面确认
+演示数据/
+demo-data/
+sample-invoices/
+
+# 镜像文件不进 Git，它是整块盘的原样复制
+*.img
+*.img.*
+*.iso
+base-*.img
+
+# 截图可能带内网地址、别人的文件名和通知
+截图/
+screenshots/
+*.png
+*.jpg
+*.jpeg
+
+# 设备台账里有编号、客户对应关系和主机名
+设备台账*
+device-ledger*
+
+# 验收记录与测试记录里有客户出的题、真实材料和结果
+验收记录/
+测试记录/
+truth.csv
+diff.csv
+accuracy.csv
+eval-*.md
+
+# 凭据和环境变量一律不进 Git
+.env
+*.env
+credentials*.json
+*.key
+*.pem

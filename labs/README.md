@@ -13,6 +13,7 @@
 | 60 | [私有知识库](level-60/02-private-rag/README.md) | 知识库与验收 | 回答带来源、查不到就说查不到、断网可用 | 企业私有知识库的交付基础 |
 | 60 | [发票台账](level-60/03-invoice-ocr/README.md) | 单据处理与交付 | 一个文件夹的单据跑成台账，错的被挑出来 | 单据自动化的交付基础 |
 | 60 | [信息抓取日报](level-60/04-daily-digest/README.md) | 自动化与交付 | 定时抓取、本地模型摘要、按日期落盘 | 信息简报与工作流交付的基础实验 |
+| 60 | [本地风格库改写](level-60/05-style-rewriter/README.md) | 本地写作与人工复核 | 代表作、三档改写、事实检查和运行记录 | 本地写作改稿工具的演示基础 |
 | 70 | [飞书智能体输出过滤](level-70/02-feishu-agent-output-filter/README.md) | Agent-to-Human | 只发送人需要阅读的结果 | 企业消息交付和人工确认 |
 | 70 | [把一个案例做成商品](level-70/04-productize-one-case/README.md) | 产品化 | 演示、说明书、验收单三样齐了 | 任何一个案例的交付准备 |
 | 80 | [第一单全过程](level-80/01-first-deal-walkthrough/README.md) | 客户与报价 | 线索、访谈、算账、报价四份材料串成一单 | 成交动线的完整演练 |
